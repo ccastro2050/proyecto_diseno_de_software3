@@ -45,6 +45,7 @@
         <div class="navbar-nav flex-wrap me-auto">
             <a class="nav-link" href="{{ url_for('inicio') }}">Inicio</a>
         <a class="nav-link" href="{{ url_for('facturas.lista') }}"><strong>Facturas</strong></a>
+        <a class="nav-link" href="{{ url_for('usuarios_roles.lista') }}">Usuarios y roles</a>
             {# El menu se arma con los PERMISOS de quien entro. Y ojo: esconder
                una entrada NO protege nada — quien escriba la direccion a mano
                llega igual, y lo que lo para es el 403 de la API. #}

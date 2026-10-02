@@ -21,6 +21,9 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 import cliente_api
 from entidades import ENTIDADES
 from rutas_entidades import bp as bp_entidades
+# v2 — el usuario CON SUS ROLES: maestro-detalle con casillas,
+# que no cabe en el molde de las vistas genericas.
+from rutas_usuarios_roles import bp as bp_usuarios_roles
 from rutas_facturas import bp as bp_facturas
 
 app = Flask(__name__)
@@ -28,6 +31,7 @@ app = Flask(__name__)
 # codigo: asi se cambia sin recompilar y no queda en el repositorio de nadie.
 app.secret_key = os.environ.get("CLAVE_SESION", "clave-solo-para-desarrollo")
 app.register_blueprint(bp_entidades)
+app.register_blueprint(bp_usuarios_roles)
 # v2 — la facturacion maestro-detalle: su propio blueprint, porque no
 # es un CRUD. Una factura no se edita: se emite y se anula.
 app.register_blueprint(bp_facturas)
